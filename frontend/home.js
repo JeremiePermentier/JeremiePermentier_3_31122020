@@ -18,7 +18,8 @@ request.onreadystatechange = function (){
                 title: document.createElement("h2"),
                 description: document.createElement("p"),
                 price: document.createElement("p"),
-                select: document.createElement("select")
+                select: document.createElement("select"),
+                btn: document.createElement("button")
             };
 
             // Ajout des éléments HTML
@@ -29,6 +30,7 @@ request.onreadystatechange = function (){
             card.container.appendChild(card.description);
             card.container.appendChild(card.price);
             card.container.appendChild(card.select);
+            card.container.appendChild(card.btn);
 
             // Boucle pour ajouter les option automatiquement
             let option = 0;
@@ -42,14 +44,18 @@ request.onreadystatechange = function (){
             
             // Ajout des valeurs et des classes
             elt.className = 'd-flex flex-wrap';
-            card.link.href = results[i]._id;
+            card.link.href = `/frontend/product.html?id=${results[i]._id}`;
             card.container.className = "card p-2";
             card.img.src = results[i].imageUrl;
             card.title.textContent = results[i].name;
             card.description.textContent = results[i].description;
             card.price.textContent = results[i].price / 100 + " €";
+            card.btn.textContent = "Ajouter au panier";
         }
 
+
+
+        
         // function selection(selection){
 //     return `
 //     <select>
