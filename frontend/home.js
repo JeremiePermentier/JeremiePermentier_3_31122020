@@ -29,8 +29,6 @@ request.onreadystatechange = function (){
             card.container.appendChild(card.title);
             card.container.appendChild(card.description);
             card.container.appendChild(card.price);
-            card.container.appendChild(card.select);
-            card.container.appendChild(card.btn);
 
             // Boucle pour ajouter les option automatiquement
             let option = 0;

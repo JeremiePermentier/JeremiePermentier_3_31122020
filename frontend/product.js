@@ -1,4 +1,6 @@
 // déclaration des variables
+
+let productQuantity = 0;
 let id = new URL(window.location.href).searchParams.get('id');
 
 
@@ -52,9 +54,17 @@ while (option < product.lenses.length){
 }
 
 function addProduct(){
-    let basket = window.localStorage;
-    localStorage.setItem("imgProduct", `"${product.imageUrl}"`)
-    localStorage.setItem("nameProduct", `"${product.name}"`)
-    localStorage.setItem("desProduct", `"${product.description}"`)
-    localStorage.setItem("priceProduct", `"${product.price}"`)
+    productQuantity++;
+    console.log(productQuantity);
+    localStorage.setItem(`"${product._id}"`, `"${productQuantity}"`);
+
+    // class cart{
+    //     constructor(id, stock){
+    //         this.id = id;
+    //         this.stock = stock;
+    //     }
+    // }
+    // let pro = new cart(product._id, 1);
+    // localStorage.setItem(`"${pro.id}"`, `"${pro.stock}"`);
+
 }
