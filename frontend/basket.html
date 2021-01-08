@@ -60,27 +60,45 @@
                 </tfoot>
         </table>
         <form action="">
-            <div>
-                <label for="name">Nom :</label>
-                <input type="text" id="name" placeholder="nom">
-                <label for="firstname">Prénom :</label>
-                <input type="text" id="firstname" placeholder="Prénom">
-            </div>
-            <div>
-                <label for="mail">Email :</label>
-                <input type="email" id="mail" placeholder="email@gmail.com">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="name">Nom :</label>
+                    <input type="text" class="form-control" id="name" placeholder="nom">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="firstname">Prénom :</label>
+                    <input type="text" class="form-control" id="firstname" placeholder="Prénom">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="number">Numéro de la rue :</label>
+                    <input type="number" class="form-control" id="number" placeholder="Numéro de la rue">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="road">Nom de la rue :</label>
+                    <input type="text" class="form-control" id="road" placeholder="Nom de la rue">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="city">Ville :</label>
+                    <input type="email" class="form-control" id="city" placeholder="Nom de la ville">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="mail">Email :</label>
+                    <input type="email" class="form-control" id="mail" placeholder="email@gmail.com">
+                </div>
             </div>
         </form>
     </main>
     <footer>
         <div class="container">
             <div class="row">
-                <form action="#" class="col-md-12">
+                <form action="#" class="col-md-6 my-5">
                     <h3>10€ offerts</h3>
                     <p>En vous abonnant à notre newsletter</p>
-                    <label for="email">Email :</label>
-                    <input type="email" id="email" placeholder="email@gmail.com">
-                    <input type="button" value="Je m'abonne">
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input type="text" id="email" class="form-control form-control-sm"  placeholder="email@gmail.com">
+                        <input type="button" value="Je m'abonne" class="btn btn-dark mt-5">
+                    </div>
                 </form>
             </div>
             <div class="row">
