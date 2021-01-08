@@ -30,7 +30,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="basket.html" class="nav-link">Mon compte</a>
+                        <a href="#" class="nav-link">Mon compte</a>
                     </li>
                     <li class="nav-item">
                         <a href="basket.html" class="nav-link">Panier</a>
@@ -39,16 +39,38 @@
             </div>
         </nav>
     </header>
-    <main id="main">
-        <table class="container">
-            <tbody id="table">
-                <tr>
-                    <td>Nom du produit</td>
-                    <td>prix</td>
-                    <td>Quantité</td>
-                </tr>
-            </tbody>
+    <main id="main" class="container">
+        <table class=" table-responsive-sm table table-striped table-bordered table-sm my-5">
+                <thead class="thead-dark" id="table">
+                    <tr>
+                        <th scope="col">Identifiant</th>
+                        <th scope="col">Nom du produit</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Prix</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+        
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="table-dark" colspan="3">Prix total</th>
+                        <th id="price"></th>
+                    </tr>
+                </tfoot>
         </table>
+        <form action="">
+            <div>
+                <label for="name">Nom :</label>
+                <input type="text" id="name" placeholder="nom">
+                <label for="firstname">Prénom :</label>
+                <input type="text" id="firstname" placeholder="Prénom">
+            </div>
+            <div>
+                <label for="mail">Email :</label>
+                <input type="email" id="mail" placeholder="email@gmail.com">
+            </div>
+        </form>
     </main>
     <footer>
         <div class="container">
@@ -57,25 +79,25 @@
                     <h3>10€ offerts</h3>
                     <p>En vous abonnant à notre newsletter</p>
                     <label for="email">Email :</label>
-                    <input type="text" id="email" placeholder="email@gmail.com">
+                    <input type="email" id="email" placeholder="email@gmail.com">
                     <input type="button" value="Je m'abonne">
                 </form>
             </div>
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4 footer__link">
                     <h4>À propos d'Orinoco</h4>
                     <ul>
                         <li><a href="#">Recrutement</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 footer__link">
                     <h4>Moyens de paiment</h4>
                     <ul>
                         <li><a href="#">Cartes de paiement</a></li>
                         <li><a href="#">Chèques et cartes cadeaux</a></li>
                     </ul>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 footer__link">
                     <h4>Besoin d'aide</h4>
                     <ul>
                         <li><a href="#">Service Client</a></li>

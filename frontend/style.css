@@ -5,11 +5,46 @@ nav, footer{
     max-width: 1000px;
     margin: 0 auto;
 }
+
+
+
+
+/* home */
+.home__link{
+    color: #000;
+    margin: 2rem auto;
+}
+.home__link:hover{
+    color: #000;
+    text-decoration: none;
+}
+.home__heading{
+    text-align: center;
+    margin: 1rem 0 0 0;
+}
+.home__text{
+    padding: 1rem 0.5rem 0rem 0.5rem;
+}
+.home__price{
+    text-align: right;
+    padding: 0 1rem;
+}
 .card{
     max-width: 400px;
     margin: 0 auto;
 }
 .card > img{
     object-fit: cover;
-    max-width: -webkit-fill-available;
+    max-width: 100%;
+}
+
+/* cart */
+
+
+
+/* Footer */
+
+.footer__link > ul > li > a{
+    text-decoration: underline;
+    color: #000;
 }

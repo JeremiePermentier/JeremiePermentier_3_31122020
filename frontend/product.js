@@ -1,4 +1,9 @@
 // déclaration des variables
+class cart{
+        constructor(stock){
+            this.stock = stock;
+        }
+    }
 
 let productQuantity = 0;
 let id = new URL(window.location.href).searchParams.get('id');
@@ -53,10 +58,18 @@ while (option < product.lenses.length){
     template.btn.id = "add";
 }
 
+
+// Fonction qui permet de stocker dans le local storage
 function addProduct(){
     productQuantity++;
-    console.log(productQuantity);
-    localStorage.setItem(`"${product._id}"`, `"${productQuantity}"`);
+    let test = new cart(productQuantity);
+
+    let obj = JSON.stringify(test);
+    localStorage.setItem(`"${product._id}"`, obj);
+    
+    // productQuantity++;
+    // console.log(productQuantity);
+    // localStorage.setItem(`"${product._id}"`, `"${productQuantity}"`);
 
     // class cart{
     //     constructor(id, stock){

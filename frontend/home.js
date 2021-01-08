@@ -42,12 +42,23 @@ request.onreadystatechange = function (){
             
             // Ajout des valeurs et des classes
             elt.className = 'd-flex flex-wrap';
+
             card.link.href = `/frontend/product.html?id=${results[i]._id}`;
+            card.link.className = "home__link";
+            
             card.container.className = "card p-2";
+            
             card.img.src = results[i].imageUrl;
+            
             card.title.textContent = results[i].name;
+            card.title.className = "home__heading";
+            
             card.description.textContent = results[i].description;
+            card.description.className = "home__text";
+
             card.price.textContent = results[i].price / 100 + " €";
+            card.price.className = "home__price";
+            
             card.btn.textContent = "Ajouter au panier";
         }
 
