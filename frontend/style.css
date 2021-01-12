@@ -18,14 +18,14 @@ nav, footer{
     color: #000;
     text-decoration: none;
 }
-.home__heading{
+.home__heading, .product__heading{
     text-align: center;
     margin: 1rem 0 0 0;
 }
 .home__text{
     padding: 1rem 0.5rem 0rem 0.5rem;
 }
-.home__price{
+.home__price, .product__price{
     text-align: right;
     padding: 0 1rem;
 }

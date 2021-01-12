@@ -1,7 +1,7 @@
 // déclaration des variables
 class cart{
-        constructor(stock){
-            this.stock = stock;
+        constructor(quantity){
+            this.quantity = quantity;
         }
     }
 
@@ -12,11 +12,69 @@ let id = new URL(window.location.href).searchParams.get('id');
 fetch("http://localhost:3000/api/cameras/" + id)
 .then(response => response.json())
 .then(data => {
-    product = data
-    template(product);
+    result = data
+    template(result);
     const add = document.getElementById("add");
     add.addEventListener("click", addProduct, false);
 })
+
+
+
+// function initBasket(){
+//     let basket = localStorage.getItem("basket");
+//     if( basket != null){
+//         return JSON.parse(basket);
+//     }else{
+//         return [];
+//     }
+// }
+
+// function addProduct(){
+//     let basket = initBasket();
+//     let cart = basket.find(product => product.product._id == result._id);
+//     let quantity = localStorage.getItem("basket");
+//     quantity = parseInt(quantity);
+//     if(cart){
+//         quantity++
+//         let product = {
+//             product: result,
+//             quantity: quantity
+//         }
+//         basket.push(product);
+//     }else{
+//         let product = {
+//             product: result,
+//             quantity: 1
+//         }
+//         basket.push(product);
+//     }
+//     saveBasket(basket);
+// }
+// function saveBasket(basket){
+//     localStorage.setItem('basket', JSON.stringify(basket));
+// }
+
+
+
+
+// Fonction qui permet de stocker dans le local storage
+function addProduct(){
+    productQuantity++;
+    let quantity = new cart(productQuantity);
+    let obj = JSON.stringify(quantity);
+    localStorage.setItem(`"${result._id}"`, obj);
+
+}
+
+
+
+
+
+
+
+
+
+
 
 
 //Création de la fonction pour le template
@@ -41,43 +99,27 @@ function template(){
 
 // Boucle pour ajouter les option automatiquement
 let option = 0;
-while (option < product.lenses.length){
+while (option < result.lenses.length){
     let opt = document.createElement("option");
     template.select.appendChild(opt);
-    opt.textContent = product.lenses[option];
+    opt.textContent = result.lenses[option];
     option ++;
 };
 
 
-    template.container.className = ("card");
-    template.img.src = product.imageUrl;
-    template.title.textContent = product.name;
-    template.description.textContent = product.description;
-    template.price.textContent = product.price / 100 + " €";
+    template.container.className = ("card p-2 my-5");
+
+    template.img.src = result.imageUrl;
+    
+    template.title.textContent = result.name;
+    template.title.className = "product__heading";
+    
+    template.description.textContent = result.description;
+    
+    template.price.textContent = result.price / 100 + " €";
+    template.price.className = "product__price";
+    
+    template.btn.className = "mt-3 btn btn-dark"
     template.btn.textContent = "Ajouter au panier";
     template.btn.id = "add";
-}
-
-
-// Fonction qui permet de stocker dans le local storage
-function addProduct(){
-    productQuantity++;
-    let test = new cart(productQuantity);
-
-    let obj = JSON.stringify(test);
-    localStorage.setItem(`"${product._id}"`, obj);
-    
-    // productQuantity++;
-    // console.log(productQuantity);
-    // localStorage.setItem(`"${product._id}"`, `"${productQuantity}"`);
-
-    // class cart{
-    //     constructor(id, stock){
-    //         this.id = id;
-    //         this.stock = stock;
-    //     }
-    // }
-    // let pro = new cart(product._id, 1);
-    // localStorage.setItem(`"${pro.id}"`, `"${pro.stock}"`);
-
 }
