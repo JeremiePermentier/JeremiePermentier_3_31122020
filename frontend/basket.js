@@ -12,17 +12,6 @@ let formMail = document.getElementById("mail");
 let send = document.getElementById("send");
 
 
-//Création d'un constructeur pour l'objet contact
-class contact{
-    constructor(name, firstName, number, road, city, email){
-        this.name = name,
-        this.firstName = firstName,
-        this.number = number,
-        this.road = road,
-        this.city = city,
-        this.email = email
-    }
-}
 
 //Création d'un array 
 let total = [];
@@ -34,57 +23,15 @@ fetch("http://localhost:3000/api/cameras")
 .then(response => response.json())
 .then(data => {
     result = data
-    cart();
+    getCart();
 })
 
 
-
-
-//Création de la requête pour envoyer des données
-// send.addEventListener("click", sendOrder, false);
-
-// function sendOrder(){
-//     let order =  new contact (
-//         formName.value,
-//         formFirstName.value,
-//         formNumber.value,
-//         formRoad.value,
-//         formCity.value,
-//         formMail.value
-//         );
-//     fetch("http://localhost:3000/api/cameras/order", {
-//         method: 'POST',
-//         body: JSON.stringify(order),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     }).then(response => {
-//         console.log("ok");
-//     })
-
-
-    // let request = new XMLHttpRequest();
-    // request.open("POST", "http://localhost:3000/api/cameras/order");
-    // request.setRequestHeader("Content-Type", "application/json");
-
-    // let order =  new contact (
-    //     formName.value,
-    //     formFirstName.value,
-    //     FormNumber.value,
-    //     formRoad.value,
-    //     formCity.value,
-    //     formMail.value
-    //     );
-    // console.log(order);
-
-    // request.send(JSON.stringify(order));
-// }
-
-
-function cart(){
-    for (i = 0; i < localStorage.length; i++){
-        if(localStorage.getItem(`"${result[i]._id}"`)){
-            
+function getCart(){
+    let cart = localStorage.getItem("cart");
+    cart = JSON.parse(cart);
+    for (i = 0; i < cart.length; i++){
+        if(cart[i]){
             let template = {
                 tr: document.createElement("tr"),
                 td: document.createElement("td"),
@@ -95,23 +42,23 @@ function cart(){
             table.appendChild(template.tr);
 
             template.tr.appendChild(template.td);
-            template.td.textContent = result[i]._id;
+            //affiche l'id
+            template.td.textContent = cart[i].id;
             
             template.tr.appendChild(template.tdName);
-            template.tdName.textContent = result[i].name;
+            //affiche le nom du produit
+            template.tdName.textContent = cart[i].name;
             
-            let number = localStorage.getItem(`"${result[i]._id}"`);
-            let objJson = JSON.parse(number);
 
             template.tr.appendChild(template.tdQuantity);
-            template.tdQuantity.textContent = objJson.quantity;
+            template.tdQuantity.textContent = cart[i].quantity;
 
-
-            let price = result[i].price / 100 * objJson.quantity;
-            let addPrice = total.push(price);
+            total.push(cart[i].price * cart[i].quantity);
             
             template.tr.appendChild(template.tdPrice);
-            template.tdPrice.textContent = price + " €";
+            template.tdPrice.textContent = cart[i].price * cart[i].quantity + " €";
+
+
             priceTotaly.textContent = total.reduce(reducer) + " €";
 
         }else{

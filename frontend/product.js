@@ -1,11 +1,4 @@
 // déclaration des variables
-class cart{
-        constructor(quantity){
-            this.quantity = quantity;
-        }
-    }
-
-let productQuantity = 0;
 let id = new URL(window.location.href).searchParams.get('id');
 
 
@@ -19,61 +12,32 @@ fetch("http://localhost:3000/api/cameras/" + id)
 })
 
 
-
-// function initBasket(){
-//     let basket = localStorage.getItem("basket");
-//     if( basket != null){
-//         return JSON.parse(basket);
-//     }else{
-//         return [];
-//     }
-// }
-
-// function addProduct(){
-//     let basket = initBasket();
-//     let cart = basket.find(product => product.product._id == result._id);
-//     let quantity = localStorage.getItem("basket");
-//     quantity = parseInt(quantity);
-//     if(cart){
-//         quantity++
-//         let product = {
-//             product: result,
-//             quantity: quantity
-//         }
-//         basket.push(product);
-//     }else{
-//         let product = {
-//             product: result,
-//             quantity: 1
-//         }
-//         basket.push(product);
-//     }
-//     saveBasket(basket);
-// }
-// function saveBasket(basket){
-//     localStorage.setItem('basket', JSON.stringify(basket));
-// }
-
-
-
-
 // Fonction qui permet de stocker dans le local storage
-function addProduct(){
-    productQuantity++;
-    let quantity = new cart(productQuantity);
-    let obj = JSON.stringify(quantity);
-    localStorage.setItem(`"${result._id}"`, obj);
+function addProduct(e){
+    e.preventDefault();
 
+    let chooseCamera = {
+        name: result.name,
+        id: result._id,
+        quantity: 1,
+        price: result.price / 100 
+    }
+
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if(cart === null){
+        cart = [];
+    }
+    
+    if(cart){
+        const arrayCart = cart.find(camera => camera.id == result._id);
+        if(arrayCart === undefined){
+            cart.push(chooseCamera);
+        }else{
+            arrayCart.quantity++;
+        }
+        localStorage.setItem("cart", JSON.stringify(cart))
+    }
 }
-
-
-
-
-
-
-
-
-
 
 
 
