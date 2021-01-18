@@ -5,7 +5,7 @@ let request = new XMLHttpRequest;
 request.onreadystatechange = function (){
     if (this.readyState == XMLHttpRequest.DONE && this.status == 200){
         let results = JSON.parse(request.responseText);
-       let elt = document.getElementById("products");
+        let elt = document.getElementById("products");
         
 
        // Création d'un objet pour le template
@@ -46,7 +46,7 @@ request.onreadystatechange = function (){
             card.link.href = `/frontend/product.html?id=${results[i]._id}`;
             card.link.className = "home__link";
             
-            card.container.className = "card p-2";
+            card.container.className = "card p-2 shadow bg-white";
             
             card.img.src = results[i].imageUrl;
             

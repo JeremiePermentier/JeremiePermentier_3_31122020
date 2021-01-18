@@ -14,7 +14,7 @@
 </head>
 <body>
     <header>
-        <nav class="col navbar navbar-expand navbar-light">
+        <nav class="col navbar navbar-expand-md navbar-light">
             <a href="index.html" class="navbar-brand">
                 <img src="img/logo.png" alt="Oricamera" width="150">
             </a>
@@ -22,8 +22,8 @@
             data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div id="navbarContent" class="collapse navbar-collapse d-flex justify-content-end">
-                <ul class="navbar-nav">
+            <div id="navbarContent" class="collapse navbar-collapse text-right">
+                <ul class="navbar-nav w-100 justify-content-end">
                     <li class="nav-item active">
                         <a href="index.html" class="nav-link">
                             Accueil
@@ -86,8 +86,7 @@
                     <input type="email" class="form-control" id="mail" placeholder="email@gmail.com" required>
                 </div>
                 <div class="form-group col-md-12  d-flex justify-content-center">
-                    <input type="submit" value="envoyer ma commande" class="btn btn-dark" id="send"
-                    [A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([_\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})>
+                    <input type="submit" value="envoyer ma commande" class="btn btn-dark" id="send">
                 </div>
             </div>
         </form>
@@ -137,8 +136,8 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
         </script>
-        <script src="basket.js" defer></script>
-        <script src="form.js" defer></script>
+        <script src="js/basket.js" defer></script>
+        <script src="js/form.js" defer></script>
     </footer>
 </body>
 </html>

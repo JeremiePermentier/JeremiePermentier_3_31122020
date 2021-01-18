@@ -71,7 +71,7 @@ while (option < result.lenses.length){
 };
 
 
-    template.container.className = ("card p-2 my-5");
+    template.container.className = ("card p-2 my-5  shadow bg-white");
 
     template.img.src = result.imageUrl;
     

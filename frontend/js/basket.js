@@ -5,7 +5,6 @@ let priceTotaly = document.getElementById("price");
 //variable pour le formulaires de contact
 let formName = document.getElementById("name");
 let formFirstName = document.getElementById("firstName");
-let formNumber = document.getElementById("number");
 let formRoad = document.getElementById("road");
 let formCity = document.getElementById("city");
 let formMail = document.getElementById("mail");

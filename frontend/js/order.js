@@ -1,6 +1,5 @@
 let main = document.getElementById("main");
 let order = JSON.parse(localStorage.getItem("order"));
-console.log(order.products[0].price);
 
 main.innerHTML = 
 `
@@ -13,3 +12,4 @@ main.innerHTML =
     </div>
 </div>
 `
+;
