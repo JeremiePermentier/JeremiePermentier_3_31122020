@@ -41,7 +41,6 @@ request.onreadystatechange = function (){
 
             
             // Ajout des valeurs et des classes
-            elt.className = 'd-flex flex-wrap';
 
             card.link.href = `/frontend/product.html?id=${results[i]._id}`;
             card.link.className = "home__link";

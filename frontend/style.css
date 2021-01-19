@@ -48,3 +48,21 @@ nav, footer{
     text-decoration: underline;
     color: #000;
 }
+
+
+
+
+/* animation */
+
+.animation-form{
+    animation: form 400ms ease-in;
+}
+
+
+@keyframes form{
+    0% {transform: translateX(10px);}
+    30% {transform: translateX(-10px);}
+    60% {transform: translateX(10px);}
+    90% {transform: translateX(-10px);}
+    100% {transform: translateX(0);}
+}
