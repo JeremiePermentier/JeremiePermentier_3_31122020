@@ -26,6 +26,12 @@ let formObj = [
         message: "il manque votre prénom"
     },
     {
+        elementNotValid: document.getElementById("postal"),
+        regexValid: /^[0-9]{5,5}$/,
+        element: document.getElementById("divNumber"),
+        message: "il manque le nom de votre rue"
+    },
+    {
         elementNotValid: document.getElementById("road"),
         regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/,
         element: document.getElementById("divRoad"),
@@ -39,11 +45,12 @@ let formObj = [
     },
     {
         elementNotValid: document.getElementById("mail"),
-        regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/,
+        regexValid: /^[a-zA-Z-]+@[a-zA-Z-]+\.[a-zA-Z]{2,6}$/,
         element: document.getElementById("divEmail"),
         message: "il manque votre adresse email"
     }
 ];
+var prenomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
 
 
 
@@ -76,6 +83,13 @@ function sendOrder(e){
         if (formObj[i].elementNotValid.validity.valueMissing){
             formObj[i].element.appendChild(divInfo);
             divInfo.className = "alert alert-danger my-3";
+            divInfo.textContent = formObj[i].message;
+            form.className += " animation-form";
+            validate = false;
+            e.preventDefault();
+        }else if(formObj[i].regexValid.test(formObj[i].elementNotValid.value) == false){
+            formObj[i].element.appendChild(divInfo);
+            divInfo.className = "alert alert-warning my-3";
             divInfo.textContent = formObj[i].message;
             form.className += " animation-form";
             validate = false;
