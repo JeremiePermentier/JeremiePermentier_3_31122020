@@ -33,7 +33,7 @@ let formObj = [
     },
     {
         elementNotValid: document.getElementById("road"),
-        regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/,
+        regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)*$/,
         element: document.getElementById("divRoad"),
         message: "il manque le nom de votre rue"
     },
@@ -54,7 +54,7 @@ var prenomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-Zé
 
 
 
-fetch("http://localhost:3000/api/cameras/")
+fetch("http://localhost:000/api/cameras/")
 .then(response => response.json())
 .then(data => {
     result = data
@@ -66,18 +66,16 @@ fetch("http://localhost:3000/api/cameras/")
                 cartArray.push(cart[i].id);
                 count++;
             }
-        }else{
-            alert("Votre panier est vide");
         }
     }
     buttonSend.addEventListener("click", sendOrder)
-
-});
-
+})
 
 function sendOrder(e){
-    let validate = true;
+    
 
+    let validate = true;
+    
     for(i = 0; i < formObj.length; i++){
         let divInfo = document.createElement("div");
         if (formObj[i].elementNotValid.validity.valueMissing){

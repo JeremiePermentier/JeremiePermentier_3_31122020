@@ -1,9 +1,17 @@
-// Création de l'instance XMLHttpRequest
+// variable pour accéder à un élément du dom
 let elt = document.getElementById("products");
 
 fetch("http://localhost:3000/api/cameras/")
 .then(response => response.json())
-.then(results => {
+.then(data => {
+    results = data;
+    //Appel de la fonction template
+    template(results);
+})
+.catch(error => templateError())
+
+
+function template(){
     // Création d'un objet pour le template
     for(let i = 0; i < results.length; i++){
         let card = {
@@ -56,4 +64,4 @@ fetch("http://localhost:3000/api/cameras/")
         
         card.btn.textContent = "Ajouter au panier";
     }
-})
+}

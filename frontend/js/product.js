@@ -10,11 +10,10 @@ fetch("http://localhost:3000/api/cameras/" + id)
     const add = document.getElementById("add");
     add.addEventListener("click", addProduct, false);
 })
-
+.catch(error => templateError())
 
 // Fonction qui permet de stocker dans le local storage
 function addProduct(e){
-    e.preventDefault();
 
     let chooseCamera = {
         name: result.name,
@@ -38,7 +37,6 @@ function addProduct(e){
         localStorage.setItem("cart", JSON.stringify(cart))
     }
 }
-
 
 
 //Création de la fonction pour le template
