@@ -14,12 +14,12 @@
 </head>
 <body>
     <header>
-        <nav class="col navbar navbar-expand-md navbar-light">
+        <nav id="navBar" class="col navbar navbar-expand-md navbar-light">
             <a href="index.html" class="navbar-brand">
                 <img src="img/logo.png" alt="Oricamera" width="150">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" 
-            data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            data-target="#navbarContent" aria-controls="navBar" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div id="navbarContent" class="collapse navbar-collapse text-right">
@@ -74,7 +74,7 @@
                 <div class="form-group col-md-6" id="divNumber">
                     <label for="road">Code Postal</label>
                     <input type="number" class="form-control" id="postal" placeholder="ex : 76000" 
-                    minlength="2" maxlength="30" required>
+                    min="2" max="30" required>
                 </div>
                 <div class="form-group col-md-6" id="divRoad">
                     <label for="road">Nom de la rue :</label>

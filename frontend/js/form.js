@@ -39,7 +39,7 @@ let formObj = [
     },
     {
         elementNotValid: document.getElementById("city"),
-        regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/,
+        regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)*$/,
         element: document.getElementById("divCity"),
         message: "il manque le nom de votre ville"
     },
@@ -50,11 +50,10 @@ let formObj = [
         message: "il manque votre adresse email"
     }
 ];
-var prenomValid = /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/;
 
 
 
-fetch("http://localhost:000/api/cameras/")
+fetch("http://localhost:3000/api/cameras/")
 .then(response => response.json())
 .then(data => {
     result = data
@@ -73,7 +72,6 @@ fetch("http://localhost:000/api/cameras/")
 
 function sendOrder(e){
     
-
     let validate = true;
     
     for(i = 0; i < formObj.length; i++){
