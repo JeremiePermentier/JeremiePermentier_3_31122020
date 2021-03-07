@@ -33,7 +33,7 @@ let formObj = [
     },
     {
         elementNotValid: document.getElementById("road"),
-        regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)*$/,
+        regexValid: /^([0-9]*)[-'\s]*[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)*$/,
         element: document.getElementById("divRoad"),
         message: "il manque le nom de votre rue"
     },
