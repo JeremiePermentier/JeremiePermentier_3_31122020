@@ -125,7 +125,7 @@ function sendOrder(e){
     .then(function(result){
         result.priceTotaly = total.reduce(reducer);
         localStorage.setItem("order", JSON.stringify(result));
-        window.location.assign("file:///home/permentier/dev/Openclassrooms/Projet/P5/frontend/order.html");
+        window.location.assign(`./order.html`);
     })
     }
 

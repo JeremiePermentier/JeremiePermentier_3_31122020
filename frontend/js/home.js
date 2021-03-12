@@ -46,7 +46,7 @@ function template(){
         
         // Ajout des valeurs et des classes
 
-        card.link.href = `file:///home/permentier/dev/Openclassrooms/Projet/P5/frontend/product.html?id=${results[i]._id}`;
+        card.link.href = `./product.html?id=${results[i]._id}`;
         card.link.className = "home__link";
         
         card.container.className = "card p-2 shadow bg-white";
