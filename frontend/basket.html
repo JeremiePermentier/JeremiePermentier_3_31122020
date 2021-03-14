@@ -65,30 +65,36 @@
                     <label for="name">Nom :</label>
                     <input type="text" class="form-control" id="name" placeholder="Exemple : john" 
                     minlength="2" maxlength="15" required>
+                    <div class="d-none">il manque votre nom</div>
                 </div>
                 <div class="form-group col-md-6" id="divFirstName">
                     <label for="firstName">Prénom :</label>
                     <input type="text" class="form-control" id="firstName" placeholder="Exemple : doe" 
                     minlength="2" maxlength="15" required>
+                    <div class="d-none">il manque votre prénom</div>
                 </div>
-                <div class="form-group col-md-6" id="divNumber">
+                <div class="form-group col-md-6" id="divPostal">
                     <label for="road">Code Postal</label>
                     <input type="number" class="form-control" id="postal" placeholder="ex : 76000" 
                     min="2" max="30" required>
+                    <div class="d-none">il manque votre code postal</div>
                 </div>
                 <div class="form-group col-md-6" id="divRoad">
                     <label for="road">Nom de la rue :</label>
                     <input type="text" class="form-control" id="road" placeholder="Exemple : rue du marché" 
                     minlength="2" maxlength="30" required>
+                    <div class="d-none">il manque votre rue</div>
                 </div>
                 <div class="form-group col-md-6" id="divCity">
                     <label for="city">Ville :</label>
                     <input type="text" class="form-control" id="city" placeholder="Exemple : rouen" 
                     minlength="2" maxlength="30" required>
+                    <div class="d-none">il manque votre ville</div>
                 </div>
                 <div class="form-group col-md-6" id="divEmail">
                     <label for="mail">Email :</label>
                     <input type="email" class="form-control" id="mail" placeholder="Exemple : johndoe@gmail.com" required>
+                    <div class="d-none">il manque votre code email</div>
                 </div>
                 <div class="form-group col-md-12  d-flex justify-content-center">
                     <input type="submit" value="envoyer ma commande" class="btn btn-dark" id="send">

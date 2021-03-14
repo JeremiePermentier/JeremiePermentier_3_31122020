@@ -14,44 +14,42 @@ let cartArray = [];
 
 let formObj = [
     {
+        elementParent: document.getElementById("divName"),
         elementNotValid: document.getElementById("name"),
         regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/,
-        element: document.getElementById("divName"),
-        message: " il manque votre nom"
+        element: document.getElementById("divName")
     },
     {
+        elementParent: document.getElementById("divFirstName"),
         elementNotValid: document.getElementById("firstName"),
         regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/,
-        element: document.getElementById("divFirstName"),
-        message: "il manque votre prénom"
+        element: document.getElementById("divFirstName")
     },
     {
+        elementParent: document.getElementById("divPostal"),
         elementNotValid: document.getElementById("postal"),
         regexValid: /^[0-9]{5,5}$/,
-        element: document.getElementById("divNumber"),
-        message: "il manque le nom de votre rue"
+        element: document.getElementById("divNumber")
     },
     {
+        elementParent: document.getElementById("divRoad"),
         elementNotValid: document.getElementById("road"),
         regexValid: /^([0-9]*)[-'\s]*[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)*$/,
-        element: document.getElementById("divRoad"),
-        message: "il manque le nom de votre rue"
+        element: document.getElementById("divRoad")
     },
     {
+        elementParent: document.getElementById("divCity"),
         elementNotValid: document.getElementById("city"),
         regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)*$/,
-        element: document.getElementById("divCity"),
-        message: "il manque le nom de votre ville"
+        element: document.getElementById("divCity")
     },
     {
+        elementParent: document.getElementById("divEmail"),
         elementNotValid: document.getElementById("mail"),
         regexValid: /^[a-zA-Z-]+@[a-zA-Z-]+\.[a-zA-Z]{2,6}$/,
-        element: document.getElementById("divEmail"),
-        message: "il manque votre adresse email"
+        element: document.getElementById("divEmail")
     }
 ];
-
-
 
 fetch("http://localhost:3000/api/cameras/")
 .then(response => response.json())
@@ -75,21 +73,20 @@ function sendOrder(e){
     let validate = true;
     
     for(i = 0; i < formObj.length; i++){
-        let divInfo = document.createElement("div");
+        let divParent = formObj[i].elementParent;
+        let divInfo = divParent.childNodes;
         if (formObj[i].elementNotValid.validity.valueMissing){
-            formObj[i].element.appendChild(divInfo);
-            divInfo.className = "alert alert-danger my-3";
-            divInfo.textContent = formObj[i].message;
+            divInfo[5].className = "alert alert-danger my-3";
             form.className += " animation-form";
             validate = false;
             e.preventDefault();
         }else if(formObj[i].regexValid.test(formObj[i].elementNotValid.value) == false){
-            formObj[i].element.appendChild(divInfo);
-            divInfo.className = "alert alert-warning my-3";
-            divInfo.textContent = formObj[i].message;
+            divInfo[5].className = "alert alert-warning my-3";
             form.className += " animation-form";
             validate = false;
             e.preventDefault();
+        } else {
+            divInfo[5].className = "d-none";
         }
     }
 
