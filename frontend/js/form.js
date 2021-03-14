@@ -17,37 +17,49 @@ let formObj = [
         elementParent: document.getElementById("divName"),
         elementNotValid: document.getElementById("name"),
         regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/,
-        element: document.getElementById("divName")
+        element: document.getElementById("divName"),
+        error: "il manque votre nom",
+        errorRegex: "Votre nom ne peut que contenir une lettre majuscule au début"
     },
     {
         elementParent: document.getElementById("divFirstName"),
         elementNotValid: document.getElementById("firstName"),
         regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)?$/,
-        element: document.getElementById("divFirstName")
+        element: document.getElementById("divFirstName"),
+        error: "il manque votre prénom",
+        errorRegex: "Votre prénom ne peut que contenir une lettre majuscule au début"
     },
     {
         elementParent: document.getElementById("divPostal"),
         elementNotValid: document.getElementById("postal"),
         regexValid: /^[0-9]{5,5}$/,
-        element: document.getElementById("divNumber")
+        element: document.getElementById("divNumber"),
+        error: "il manque votre code postal",
+        errorRegex: "Votre code postal doit contenir 5 chiffres"
     },
     {
         elementParent: document.getElementById("divRoad"),
         elementNotValid: document.getElementById("road"),
         regexValid: /^([0-9]*)[-'\s]*[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)*$/,
-        element: document.getElementById("divRoad")
+        element: document.getElementById("divRoad"),
+        error: "il manque votre rue",
+        errorRegex: "Le nom de votre rue ne doit pas contenir que des chiffres"
     },
     {
         elementParent: document.getElementById("divCity"),
         elementNotValid: document.getElementById("city"),
         regexValid: /^[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)*$/,
-        element: document.getElementById("divCity")
+        element: document.getElementById("divCity"),
+        error: "il manque votre ville",
+        errorRegex: "Le nom de votre ville ne doit pas contenir de chiffre ou que des lettres en capitales"
     },
     {
         elementParent: document.getElementById("divEmail"),
         elementNotValid: document.getElementById("mail"),
         regexValid: /^[a-zA-Z-]+@[a-zA-Z-]+\.[a-zA-Z]{2,6}$/,
-        element: document.getElementById("divEmail")
+        element: document.getElementById("divEmail"),
+        error: "il manque votre email",
+        errorRegex: "Votre email ne correspond pas au format d'une adresse email"
     }
 ];
 
@@ -77,11 +89,13 @@ function sendOrder(e){
         let divInfo = divParent.childNodes;
         if (formObj[i].elementNotValid.validity.valueMissing){
             divInfo[5].className = "alert alert-danger my-3";
+            divInfo[5].textContent = formObj[i].error;
             form.className += " animation-form";
             validate = false;
             e.preventDefault();
         }else if(formObj[i].regexValid.test(formObj[i].elementNotValid.value) == false){
             divInfo[5].className = "alert alert-warning my-3";
+            divInfo[5].textContent = formObj[i].errorRegex;
             form.className += " animation-form";
             validate = false;
             e.preventDefault();
