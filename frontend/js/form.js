@@ -43,7 +43,7 @@ let formObj = [
         regexValid: /^([0-9]*)[-'\s]*[a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+([-'\s][a-zA-ZéèîïÉÈÎÏ][a-zéèêàçîï]+)*$/,
         element: document.getElementById("divRoad"),
         error: "il manque votre rue",
-        errorRegex: "Le nom de votre rue ne doit pas contenir que des chiffres"
+        errorRegex: "Le nom de la rue doit contenir les chiffres au début et les lettres à la suite."
     },
     {
         elementParent: document.getElementById("divCity"),
@@ -62,6 +62,10 @@ let formObj = [
         errorRegex: "Votre email ne correspond pas au format d'une adresse email"
     }
 ];
+
+if(localStorage.getItem("order")){
+    localStorage.removeItem("order");
+}
 
 fetch("http://localhost:3000/api/cameras/")
 .then(response => response.json())

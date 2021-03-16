@@ -1,6 +1,8 @@
 let main = document.getElementById("main");
 let order = JSON.parse(localStorage.getItem("order"));
 
+localStorage.removeItem("cart");
+
 main.innerHTML = 
 `
 <div class="row">
