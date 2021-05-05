@@ -13,3 +13,9 @@
   <li>Valider des données issues de sources externes</li>
   <li>Gérer des événements JavaScript</li>
 </ul>
+<h2>Technologies utlisées</h2>
+<ul>
+	<li>HTML</li>
+	<li>CSS</li>
+	<li>JavaScript</li>
+</ul>
