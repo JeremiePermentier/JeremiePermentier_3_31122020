@@ -85,13 +85,7 @@ nav{
     max-width: 100%;
 }
 
-/* BASKET */
 
-@media screen and (max-width: 700px){
-    #basket{
-        height: 100% !important;
-    }
-}
 
 
 /* FOOTER */
@@ -212,3 +206,21 @@ nav{
       opacity: 0; 
     }
   }
+
+
+  @media screen and (max-width: 700px){
+    /* BANNER */
+
+    .banner__title{
+        font-size: 4rem;
+    }
+    .banner__price{
+        font-size: 3rem;
+    }
+
+    /* BASKET */
+
+    #basket{
+        height: 100% !important;
+    }
+}
