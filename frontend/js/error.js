@@ -5,10 +5,10 @@ function templateError(){
 
     let imgError = document.createElement("img");
     divError.appendChild(imgError);
-    imgError.src = "img/exclamation-triangle-solid.svg";
-    imgError.className = "m-5";
+    imgError.src = "img/sad-camera-error.png";
 
     let error = document.createElement("h2");
     divError.appendChild(error);
+    error.className = "text-center";
     error.textContent = "Erreur leur du chargement de la page";    
 }

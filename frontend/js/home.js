@@ -1,14 +1,19 @@
 // variable pour accéder à un élément du dom
-let elt = document.getElementById("products");
+const elt = document.getElementById("products");
+const spinner = document.getElementById("spinner");
 
-fetch("http://localhost:3000/api/cameras/")
-.then(response => response.json())
+fetch(`${urlApi}api/cameras/`)
+.then(response => {
+    if (response.status){
+        spinner.setAttribute('hidden', '')
+    }
+    return response.json();
+})
 .then(data => {
     results = data;
-    //Appel de la fonction template
     template(results);
 })
-.catch(error => templateError())
+.catch(() => templateError())
 
 
 function template(){
@@ -19,6 +24,7 @@ function template(){
             row: document.createElement("div"),
             link: document.createElement("a"),
             img: document.createElement("img"),
+            containerText: document.createElement("div"),
             title: document.createElement("h2"),
             description: document.createElement("p"),
             price: document.createElement("p"),
@@ -30,9 +36,10 @@ function template(){
         elt.appendChild(card.link);
         card.link.appendChild(card.container);
         card.container.appendChild(card.img);
-        card.container.appendChild(card.title);
-        card.container.appendChild(card.description);
-        card.container.appendChild(card.price);
+        card.container.appendChild(card.containerText);
+        card.containerText.appendChild(card.title);
+        card.containerText.appendChild(card.price);
+        card.containerText.appendChild(card.description);
 
         // Boucle pour ajouter les options automatiquement
         let option = 0;
@@ -53,6 +60,8 @@ function template(){
         
         card.img.src = results[i].imageUrl;
         
+        card.containerText.className = "home__container mt-2 p-3 rounded"
+
         card.title.textContent = results[i].name;
         card.title.className = "home__heading";
         
@@ -60,7 +69,7 @@ function template(){
         card.description.className = "home__text";
 
         card.price.textContent = results[i].price / 100 + " €";
-        card.price.className = "home__price";
+        card.price.className = "home__price font-weight-bold";
         
         card.btn.textContent = "Ajouter au panier";
     }

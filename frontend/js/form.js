@@ -67,7 +67,7 @@ if(localStorage.getItem("order")){
     localStorage.removeItem("order");
 }
 
-fetch("http://localhost:3000/api/cameras/")
+fetch(`${urlApi}api/cameras/`)
 .then(response => response.json())
 .then(data => {
     result = data
@@ -92,7 +92,7 @@ function sendOrder(e){
         let divParent = formObj[i].elementParent;
         let divInfo = divParent.childNodes;
         if (formObj[i].elementNotValid.validity.valueMissing){
-            divInfo[5].className = "alert alert-danger my-3";
+            divInfo[5].className = "alert alert-danger my-3 text-white";
             divInfo[5].textContent = formObj[i].error;
             form.className += " animation-form";
             validate = false;
@@ -117,7 +117,7 @@ function sendOrder(e){
     let city = document.getElementById('city').value;
     let email = document.getElementById('mail').value;
 
-    fetch("http://localhost:3000/api/cameras/order", {
+    fetch(`${urlApi}api/cameras/order`, {
         method: 'POST',
         body: JSON.stringify({
             contact: {

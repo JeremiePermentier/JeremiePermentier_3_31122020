@@ -1,43 +1,23 @@
 // déclaration des variables
+const elt = document.getElementById("main");
 let id = new URL(window.location.href).searchParams.get('id');
+const spinner = document.getElementById("spinner");
 
 
-fetch("http://localhost:3000/api/cameras/" + id)
-.then(response => response.json())
+fetch(`${urlApi}api/cameras/` + id)
+.then(response => {
+    if (response.status){
+        spinner.setAttribute('hidden', '')
+    }
+    return response.json();
+})
 .then(data => {
     result = data
     template(result);
     const add = document.getElementById("add");
     add.addEventListener("click", addProduct, false);
 })
-.catch(error => templateError())
-
-// Fonction qui permet de stocker dans le local storage
-function addProduct(e){
-
-    let chooseCamera = {
-        name: result.name,
-        id: result._id,
-        quantity: 1,
-        price: result.price / 100 
-    }
-
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    if(cart === null){
-        cart = [];
-    }
-    
-    if(cart){
-        const arrayCart = cart.find(camera => camera.id == result._id);
-        if(arrayCart === undefined){
-            cart.push(chooseCamera);
-        }else{
-            arrayCart.quantity++;
-        }
-        localStorage.setItem("cart", JSON.stringify(cart))
-    }
-}
-
+.catch(() => templateError())
 
 //Création de la fonction pour le template
 function template(){
@@ -50,7 +30,6 @@ function template(){
         select: document.createElement("select"),
         btn: document.createElement("button")
     }
-    let elt = document.getElementById("main");
     elt.appendChild(template.container);
     template.container.appendChild(template.img);
     template.container.appendChild(template.title);
@@ -68,8 +47,7 @@ while (option < result.lenses.length){
     option ++;
 };
 
-
-    template.container.className = ("card p-2 my-5  shadow bg-white");
+    template.container.className = ("card p-2 m-auto shadow bg-white");
 
     template.img.src = result.imageUrl;
     
@@ -79,9 +57,37 @@ while (option < result.lenses.length){
     template.description.textContent = result.description;
     
     template.price.textContent = result.price / 100 + " €";
-    template.price.className = "product__price";
+    template.price.className = "product__price font-weight-bold";
+
+    template.select.className = "form-select"
     
-    template.btn.className = "mt-3 btn btn-dark"
+    template.btn.className = "mt-3 btn btn-primary btn-light font-weight-bold"
     template.btn.textContent = "Ajouter au panier";
     template.btn.id = "add";
-}
+};
+
+// Fonction qui permet de stocker dans le local storage
+function addProduct(){
+
+    let chooseCamera = {
+        name: result.name,
+        id: result._id,
+        quantity: 1,
+        price: result.price / 100 
+    }
+
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    if(cart === null){
+        cart = [];
+    };
+    
+    if(cart){
+        const arrayCart = cart.find(camera => camera.id == result._id);
+        if(arrayCart === undefined){
+            cart.push(chooseCamera);
+        }else{
+            arrayCart.quantity++;
+        }
+        localStorage.setItem("cart", JSON.stringify(cart))
+    };
+};

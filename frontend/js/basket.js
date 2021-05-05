@@ -18,7 +18,7 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 
 
 //Création de la requête pour récupérer les données
-fetch("http://localhost:3000/api/cameras")
+fetch(`${urlApi}api/cameras/`)
 .then(response => response.json())
 .then(data => {
     result = data
