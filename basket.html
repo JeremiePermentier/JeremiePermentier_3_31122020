@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oricamera est une autre boutique ecommerce
+    de Orinoco, nous proposons différents appareils photo.">
+    <title>Oricamera</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" 
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav id="navBar" class="col navbar navbar-expand-md navbar-dark">
+            <a href="index.html" class="navbar-brand">
+                Orinoco
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarContent" aria-controls="navBar" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse text-right">
+                <ul class="navbar-nav w-100 justify-content-end">
+                    <li class="nav-item">
+                        <a href="index.html#products" class="nav-link text-white">Appareils photos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#products" class="nav-link text-white">Lentilles</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#products" class="nav-link text-white">Flashes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="index.html#products" class="nav-link text-white">Accessoires</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="basket.html" class="nav-link text-white"><i class="fas fa-shopping-cart"></i></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a href="#" class="btn btn-primary btn-light text-uppercase font-weight-bold">Connexion</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main id="main" class="container vh-100 d-flex">
+        <section class="cart m-auto">
+            <h2 class="text-center mb-5 display-4">Mon panier</h2>
+            <table class=" table-responsive-sm table table-striped table-bordered table-sm">
+                <thead class="thead-dark" id="table">
+                    <tr>
+                        <th scope="col">Identifiant</th>
+                        <th scope="col">Nom du produit</th>
+                        <th scope="col">Quantité</th>
+                        <th scope="col">Prix</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+        
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th class="table-dark" colspan="3">Prix total</th>
+                        <th id="price"></th>
+                    </tr>
+                </tfoot>
+        </table>
+        <form>
+            <div class="form-row" id="form">
+                <div class="form-group col-md-6" id="divName">
+                    <label for="name">Nom :</label>
+                    <input type="text" class="form-control" id="name" placeholder="Exemple : john" 
+                    minlength="2" maxlength="15" required>
+                    <div class="d-none">il manque votre nom</div>
+                </div>
+                <div class="form-group col-md-6" id="divFirstName">
+                    <label for="firstName">Prénom :</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="Exemple : doe" 
+                    minlength="2" maxlength="15" required>
+                    <div class="d-none"></div>
+                </div>
+                <div class="form-group col-md-6" id="divPostal">
+                    <label for="road">Code Postal</label>
+                    <input type="number" class="form-control" id="postal" placeholder="ex : 76000" 
+                    min="2" max="30" required>
+                    <div class="d-none"></div>
+                </div>
+                <div class="form-group col-md-6" id="divRoad">
+                    <label for="road">Nom de la rue :</label>
+                    <input type="text" class="form-control" id="road" placeholder="Exemple : 10 rue du marché" 
+                    minlength="2" maxlength="30" required>
+                    <div class="d-none"></div>
+                </div>
+                <div class="form-group col-md-6" id="divCity">
+                    <label for="city">Ville :</label>
+                    <input type="text" class="form-control" id="city" placeholder="Exemple : rouen" 
+                    minlength="2" maxlength="30" required>
+                    <div class="d-none"></div>
+                </div>
+                <div class="form-group col-md-6" id="divEmail">
+                    <label for="mail">Email :</label>
+                    <input type="email" class="form-control" id="mail" placeholder="Exemple : johndoe@gmail.com" required>
+                    <div class="d-none"></div>
+                </div>
+                <div class="form-group col-md-12  d-flex justify-content-center">
+                    <input type="submit" value="Envoyer ma commande" class="btn btn-primary btn-light font-weight-bold" id="send">
+                </div>
+            </div>
+        </form>
+        </section>
+    </main>
+    <footer class="text-white">
+        <div class="container">
+            <div class="row">
+                <form action="#" class="col-md-6 my-5">
+                    <h3>10€ offerts</h3>
+                    <p>En vous abonnant à notre newsletter</p>
+                    <div class="form-group">
+                        <label for="email">Email :</label>
+                        <input type="text" id="email" class="form-control form-control-sm"  placeholder="email@gmail.com">
+                        <input type="button" value="Je m'abonne" class="btn btn-dark mt-5">
+                    </div>
+                </form>
+            </div>
+            <div class="row">
+                <div class="col-md-4 footer__link">
+                    <h4>À propos d'Orinoco</h4>
+                    <ul>
+                        <li><a class="text-white" href="#">Recrutement</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer__link">
+                    <h4>Moyens de paiment</h4>
+                    <ul>
+                        <li><a class="text-white" href="#">Cartes de paiement</a></li>
+                        <li><a class="text-white" href="#">Chèques et cartes cadeaux</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 footer__link">
+                    <h4>Besoin d'aide</h4>
+                    <ul>
+                        <li><a class="text-white" href="#">Service Client</a></li>
+                        <li><a class="text-white" href="#">Livraison</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" 
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" 
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" 
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" 
+        crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" 
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+        </script>
+        <script src="./js/config.js" defer></script>
+        <script src="./js/error.js" defer></script>
+        <script src="./js/basket.js" defer></script>
+        <script src="./js/form.js" defer></script>
+        <script src="./js/nav.js" defer></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" integrity="sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==" crossorigin="anonymous"></script>
+    </footer>
+</body>
+</html>
