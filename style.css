@@ -85,7 +85,13 @@ nav{
     max-width: 100%;
 }
 
+/* BASKET */
 
+@media screen and (max-width: 700px){
+    #basket{
+        height: 100% !important;
+    }
+}
 
 
 /* FOOTER */
