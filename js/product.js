@@ -61,7 +61,7 @@ while (option < result.lenses.length){
 
     template.select.className = "form-select"
     
-    template.btn.className = "mt-3 btn btn-primary btn-light font-weight-bold"
+    template.btn.className = "btn-purchase mt-3 btn btn-primary btn-light font-weight-bold"
     template.btn.textContent = "Ajouter au panier";
     template.btn.id = "add";
 };

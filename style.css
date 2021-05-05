@@ -85,9 +85,20 @@ nav{
     max-width: 100%;
 }
 
+/* SINGLE PRODUCT */
 
-
-
+.btn-purchase{
+    border-bottom: 2px solid #323232;
+    transform: translateY(-3px);
+}
+.btn-purchase:hover{
+    border-bottom: 2px solid #323232;
+    transform: translateY(-2px);
+}
+.btn-purchase:focus{
+    border-bottom: 0px solid #323232;
+    transform: translateY(0);
+}
 /* FOOTER */
 
 .footer__link > ul > li > a{
